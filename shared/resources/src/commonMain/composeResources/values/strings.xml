@@ -531,4 +531,96 @@
     <string name="description_privacy_policy">See how your data is handled</string>
 
     <string name="error_open_food_facts_timeout">Open Food Facts is taking too long to respond. The service may be temporarily slow or unavailable. Try scanning the product barcode instead.</string>
+
+    <!-- TDEE calculator and weight projection -->
+    <string name="headline_tdee">TDEE calculator</string>
+    <string name="neutral_estimate_energy_needs">Estimate your energy needs and project your weight</string>
+    <string name="headline_body_profile">Your body</string>
+    <string name="headline_energy_expenditure">Energy expenditure</string>
+    <string name="headline_weight_projection">Weight projection</string>
+    <string name="headline_basal_metabolic_rate">Basal metabolic rate</string>
+    <string name="headline_total_daily_energy_expenditure">Total daily energy expenditure</string>
+    <string name="description_basal_metabolic_rate">Energy burnt at complete rest</string>
+    <string name="description_total_daily_energy_expenditure">Energy burnt per day including activity. Eat this much to hold your weight steady.</string>
+    <string name="description_estimate_accuracy">These equations are population averages. Individual expenditure varies by roughly 10 percent either way, so correct the estimate against your own weight measurements over a few weeks.</string>
+
+    <string name="headline_sex">Sex</string>
+    <string name="neutral_male">Male</string>
+    <string name="neutral_female">Female</string>
+    <string name="headline_age">Age</string>
+    <string name="unit_years_short">yr</string>
+    <string name="headline_height">Height</string>
+    <string name="unit_centimeter_short" translatable="false">cm</string>
+    <string name="headline_body_weight">Weight</string>
+    <string name="unit_kilogram_short" translatable="false">kg</string>
+    <string name="headline_body_fat">Body fat</string>
+    <string name="description_body_fat_optional">Optional, improves the estimate</string>
+    <string name="description_body_fat_required">Required by the Katch-McArdle formula</string>
+    <string name="headline_body_mass_index">Body mass index</string>
+
+    <string name="headline_activity_level">Activity level</string>
+    <string name="neutral_activity_sedentary">Sedentary</string>
+    <string name="description_activity_sedentary">Little or no exercise, desk job</string>
+    <string name="neutral_activity_lightly_active">Lightly active</string>
+    <string name="description_activity_lightly_active">Light exercise 1 to 3 days a week</string>
+    <string name="neutral_activity_moderately_active">Moderately active</string>
+    <string name="description_activity_moderately_active">Moderate exercise 3 to 5 days a week</string>
+    <string name="neutral_activity_very_active">Very active</string>
+    <string name="description_activity_very_active">Hard exercise 6 to 7 days a week</string>
+    <string name="neutral_activity_extra_active">Extra active</string>
+    <string name="description_activity_extra_active">Very hard exercise, physical job or twice daily training</string>
+
+    <string name="headline_bmr_formula">Formula</string>
+    <string name="neutral_formula_mifflin_st_jeor" translatable="false">Mifflin-St Jeor</string>
+    <string name="description_formula_mifflin_st_jeor">Most accurate for most people</string>
+    <string name="neutral_formula_harris_benedict" translatable="false">Harris-Benedict</string>
+    <string name="description_formula_harris_benedict">The 1984 revised equation</string>
+    <string name="neutral_formula_katch_mcardle" translatable="false">Katch-McArdle</string>
+    <string name="description_formula_katch_mcardle">Based on lean mass, best if you know your body fat</string>
+
+    <string name="headline_daily_intake">Daily intake</string>
+    <string name="description_daily_intake_from_goal">Leave empty to use your daily energy goal</string>
+    <string name="x_using_daily_energy_goal">Using your daily energy goal: %1$s</string>
+    <string name="headline_target_weight">Target weight</string>
+    <string name="description_target_weight_optional">Optional, to see how long it takes</string>
+    <string name="headline_energy_per_kilogram">Energy per kilogram</string>
+    <string name="description_energy_per_kilogram">Energy assumed per kilogram of body weight gained or lost. 7000 is the practical figure, 7700 is pure body fat.</string>
+
+    <string name="headline_daily_energy_balance">Daily energy balance</string>
+    <string name="neutral_deficit">Deficit</string>
+    <string name="neutral_surplus">Surplus</string>
+    <string name="neutral_weight_maintenance">Maintenance</string>
+    <string name="description_weight_maintenance">Your intake matches your expenditure, so your weight should stay where it is.</string>
+    <string name="headline_rate_of_change">Rate of change</string>
+    <string name="x_per_week">%1$s per week</string>
+    <string name="x_per_month">%1$s per month</string>
+    <string name="headline_projected_weight">Projected weight</string>
+    <string name="headline_target">Target</string>
+
+    <plurals name="neutral_x_days">
+        <item quantity="one">%1$d day</item>
+        <item quantity="other">%1$d days</item>
+    </plurals>
+    <plurals name="neutral_x_weeks">
+        <item quantity="one">%1$d week</item>
+        <item quantity="other">%1$d weeks</item>
+    </plurals>
+    <plurals name="neutral_x_months">
+        <item quantity="one">%1$d month</item>
+        <item quantity="other">%1$d months</item>
+    </plurals>
+
+    <string name="x_target_reached_in">Target reached in %1$s</string>
+    <string name="x_target_reached_on">Around %1$s</string>
+    <string name="positive_target_weight_reached">You are already at your target weight.</string>
+    <string name="negative_target_wrong_direction">Your intake moves you away from your target. Change your intake or your target.</string>
+    <string name="negative_target_at_maintenance">At maintenance your weight will not move, so the target is never reached.</string>
+    <string name="negative_target_beyond_horizon">Your energy balance is so small that the target is more than five years away.</string>
+    <string name="description_projection_is_linear">A straight line estimate at %1$s kcal per kilogram, holding your expenditure constant. Real expenditure falls as you lose weight, so long projections overshoot. Redo this as your weight changes.</string>
+
+    <string name="description_tdee_incomplete_form">Fill in your details above to see the estimate.</string>
+    <string name="positive_tdee_plan_saved">Saved</string>
+    <string name="action_use_as_daily_energy_goal">Use as daily energy goal</string>
+    <string name="positive_daily_energy_goal_updated">Daily energy goal updated</string>
+    <string name="error_value_out_of_range">Value out of range</string>
 </resources>

@@ -34,6 +34,7 @@ fun SettingsScreen(
     onMeals: () -> Unit,
     onLanguage: () -> Unit,
     onGoals: () -> Unit,
+    onTdee: () -> Unit,
     onPersonalization: () -> Unit,
     onDatabase: () -> Unit,
     modifier: Modifier = Modifier,
@@ -94,6 +95,15 @@ fun SettingsScreen(
             item {
                 GoalsSettingsListItem(
                     onClick = onGoals,
+                    shape = shape,
+                    color = color,
+                    contentColor = contentColor,
+                )
+            }
+
+            item {
+                TdeeSettingsListItem(
+                    onClick = onTdee,
                     shape = shape,
                     color = color,
                     contentColor = contentColor,
