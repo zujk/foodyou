@@ -130,7 +130,9 @@ class WeightProjectorTest {
                 targetWeightKg = 80.0,
             )
 
-        assertIs<GoalOutcome.AlreadyReached>(projection.goal)
+        val goal = assertIs<GoalOutcome.AlreadyReached>(projection.goal)
+
+        assertEquals(80.0, goal.targetWeightKg, TOLERANCE)
     }
 
     @Test

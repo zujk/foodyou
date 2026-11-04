@@ -49,15 +49,15 @@ class BmrCalculatorTest {
 
     @Test
     fun harrisBenedict_male() {
-        // 88.362 + 13.397*80 + 4.799*180 - 5.677*30 = 1858.772
+        // 88.362 + 13.397*80 + 4.799*180 - 5.677*30 = 1853.632
         val bmr = BmrCalculator.basalMetabolicRate(profile(formula = BmrFormula.HarrisBenedict))
 
-        assertEquals(1858.772, bmr, TOLERANCE)
+        assertEquals(1853.632, bmr, TOLERANCE)
     }
 
     @Test
     fun harrisBenedict_female() {
-        // 447.593 + 9.247*65 + 3.098*165 - 4.330*30 = 1427.098
+        // 447.593 + 9.247*65 + 3.098*165 - 4.330*30 = 1429.918
         val bmr =
             BmrCalculator.basalMetabolicRate(
                 profile(
@@ -68,7 +68,7 @@ class BmrCalculatorTest {
                 )
             )
 
-        assertEquals(1427.098, bmr, TOLERANCE)
+        assertEquals(1429.918, bmr, TOLERANCE)
     }
 
     @Test
