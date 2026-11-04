@@ -76,7 +76,8 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: foodyou-apk-${{ github.ref_name }}-${{ github.sha }}
+          # Artifact names cannot contain a slash, which branch names do.
+          name: foodyou-apk-${{ github.sha }}
           path: app/build/outputs/apk/devRelease/*.apk
           if-no-files-found: error
           retention-days: 30
