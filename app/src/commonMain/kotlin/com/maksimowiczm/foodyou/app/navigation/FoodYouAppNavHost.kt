@@ -35,6 +35,7 @@ import com.maksimowiczm.foodyou.app.ui.personalization.PersonalizationScreen
 import com.maksimowiczm.foodyou.app.ui.personalization.PersonalizeNutritionFactsScreen
 import com.maksimowiczm.foodyou.app.ui.settings.SettingsScreen
 import com.maksimowiczm.foodyou.app.ui.sponsor.SponsorScreen
+import com.maksimowiczm.foodyou.app.ui.tdee.TdeeScreen
 import com.maksimowiczm.foodyou.app.ui.theme.ThemeScreen
 import com.maksimowiczm.foodyou.common.domain.measurement.Measurement
 import com.maksimowiczm.foodyou.common.domain.measurement.MeasurementType
@@ -90,6 +91,7 @@ fun FoodYouAppNavHost(onDatabaseBackup: () -> Unit, modifier: Modifier = Modifie
                 onMeals = { navController.navigateSingleTop(MealSetup) },
                 onLanguage = { navController.navigateSingleTop(Language) },
                 onGoals = { navController.navigateSingleTop(GoalsSetup) },
+                onTdee = { navController.navigateSingleTop(Tdee) },
                 onPersonalization = { navController.navigateSingleTop(Personalization) },
                 onDatabase = { navController.navigateSingleTop(DatabaseSettings) },
             )
@@ -119,6 +121,9 @@ fun FoodYouAppNavHost(onDatabaseBackup: () -> Unit, modifier: Modifier = Modifie
                 onBack = { navController.popBackStackInclusive<GoalsSetup>() },
                 onSave = { navController.popBackStackInclusive<GoalsSetup>() },
             )
+        }
+        forwardBackwardComposable<Tdee> {
+            TdeeScreen(onBack = { navController.popBackStackInclusive<Tdee>() })
         }
         forwardBackwardComposable<DatabaseSettings> {
             DatabaseSettingsScreen(
@@ -399,6 +404,8 @@ fun FoodYouAppNavHost(onDatabaseBackup: () -> Unit, modifier: Modifier = Modifie
 @Serializable private data class Goals(val epochDay: Long)
 
 @Serializable private object GoalsSetup
+
+@Serializable private object Tdee
 
 @Serializable private object DatabaseSettings
 
