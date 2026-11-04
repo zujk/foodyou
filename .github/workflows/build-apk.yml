@@ -83,7 +83,25 @@ jobs:
           retention-days: 30
 
       - name: Run unit tests
-        run: ./gradlew --no-daemon :app:testDevReleaseUnitTest
+        run: |
+          set -o pipefail
+          ./gradlew --no-daemon :app:testDevReleaseUnitTest 2>&1 | tee test-output.txt
+
+      # Raw run logs need a signed-in GitHub account, while annotations are
+      # readable by anyone, so the reason a build went red stays visible.
+      - name: Surface the failure as an annotation
+        if: failure()
+        run: |
+          if [ ! -f test-output.txt ]; then
+            echo "::error title=Unit tests::No output captured."
+            exit 0
+          fi
+
+          escaped="$(tail -n 50 test-output.txt \
+            | sed -e 's/%/%25/g' -e 's/\r/%0D/g' \
+            | awk '{ printf "%s%%0A", $0 }')"
+
+          echo "::error title=Gradle output (last 50 lines)::${escaped}"
 
       - name: Upload test report
         if: failure()
