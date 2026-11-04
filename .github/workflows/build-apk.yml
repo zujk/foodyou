@@ -33,7 +33,7 @@ jobs:
       # The project sets sourceCompatibility and jvmTarget to 21, so the Gradle
       # JVM has to be at least 21.
       - name: Set up JDK 21
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: '21'
           distribution: 'temurin'
@@ -41,14 +41,24 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          accept-android-sdk-licenses: true
-          log-accepted-android-sdk-licenses: false
+      # The Ubuntu runner image already ships the Android SDK, so there is no
+      # setup action to go stale. android-actions/setup-android@v3 is a Node 20
+      # action and fails outright now that the runners force Node 24.
+      - name: Locate the Android SDK
+        run: |
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          sdkmanager_path="$(find "$ANDROID_HOME/cmdline-tools" -type f -name sdkmanager | sort | tail -1)"
+          if [ -z "$sdkmanager_path" ]; then
+            echo "sdkmanager not found under $ANDROID_HOME/cmdline-tools" >&2
+            exit 1
+          fi
+          echo "Using $sdkmanager_path"
+          echo "SDKMANAGER=$sdkmanager_path" >> "$GITHUB_ENV"
 
       - name: Install SDK platform and build tools
-        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+        run: |
+          yes | "$SDKMANAGER" --licenses > /dev/null 2>&1 || true
+          "$SDKMANAGER" "platforms;android-36" "build-tools;36.0.0"
 
       - name: Build APK
         run: ./gradlew --no-daemon :app:assembleDevRelease
